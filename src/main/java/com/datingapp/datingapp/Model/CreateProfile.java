@@ -1,6 +1,8 @@
 package com.datingapp.datingapp.Model;
 
 public class CreateProfile {
+
+
     private int userid;
     private String username;
     private String password;
@@ -67,9 +69,13 @@ public class CreateProfile {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
+    public void setLastName(String lastName) { this.lastName = lastName; }
+
+    public int getUserid() { return userid; }
+
+    public void setUserid(int userid) { this.userid = userid; }
+
+    public boolean isAdmin() { return admin; }
 
     @Override
     public String toString() {

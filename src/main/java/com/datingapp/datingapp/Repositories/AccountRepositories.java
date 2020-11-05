@@ -13,7 +13,7 @@ public class AccountRepositories {
 
      try {
          //lavet et statement
-         PreparedStatement ps = establishConnection().prepareStatement("SELECT * FROM profile.user");
+         PreparedStatement ps = establishConnection().prepareStatement("SELECT * FROM user");
 
          //eksekvere en query
          ResultSet rs = ps.executeQuery();
@@ -39,10 +39,6 @@ public class AccountRepositories {
         }
         return acclist;
     }
-
-
-
-
 
     private Connection establishConnection() throws SQLException {
         //Lav en forbindelse
