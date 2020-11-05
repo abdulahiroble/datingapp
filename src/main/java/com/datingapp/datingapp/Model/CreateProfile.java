@@ -1,15 +1,21 @@
 package com.datingapp.datingapp.Model;
 
 public class CreateProfile {
-    private String userName;
-    private int password;
-    private boolean admin;
-    private int phone;
+    private int userid;
+    private String username;
+    private String password;
     private String firstName;
     private String lastName;
+    private int phone;
+    private boolean admin;
 
-    public CreateProfile(String userName, int password, boolean admin, int phone, String firstName, String lastName) {
-        this.userName = userName;
+
+
+
+    public CreateProfile(int userid, String username, String password, String firstName, String lastName, int phone, boolean admin) {
+
+        this.userid = userid;
+        this.username = username;
         this.password = password;
         this.admin = admin;
         this.phone = phone;
@@ -17,19 +23,19 @@ public class CreateProfile {
         this.lastName = lastName;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public int getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(int Password) {
+    public void setPassword(String Password) {
         this.password = Password;
     }
 
@@ -67,7 +73,7 @@ public class CreateProfile {
 
     @Override
     public String toString() {
-        return "Employee{" + "user name=" + userName + ", password='" + password + '\'' + ", admin='" + admin + '\''
+        return "Account{" + "user name=" + username + ", password='" + password + '\'' + ", admin='" + admin + '\''
                 + ", phone=" + phone + ", first name=" + firstName + ", last name=" + lastName;
     }
 }
