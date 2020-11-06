@@ -40,4 +40,16 @@ public class MyController {
 
         return "admin";
     }
+
+    @GetMapping("/forside")
+    public String forside() {
+
+        return "forside";
+    }
+
+    @GetMapping("/chat")
+    public String chat() {
+
+        return "chat";
+    }
 }
