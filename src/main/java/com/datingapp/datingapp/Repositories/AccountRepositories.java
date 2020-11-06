@@ -12,8 +12,9 @@ public class AccountRepositories {
         List<CreateProfile> acclist = new ArrayList<CreateProfile>();
 
      try {
+
          //lavet et statement
-         PreparedStatement ps = establishConnection().prepareStatement("SELECT * FROM user");
+         PreparedStatement ps = establishConnection().prepareStatement("SELECT * FROM profile.user");
 
          //eksekvere en query
          ResultSet rs = ps.executeQuery();
@@ -26,11 +27,11 @@ public class AccountRepositories {
                      rs.getString(3),
                      rs.getString(4),
                      rs.getString(5),
-                     rs.getInt(6),
-                     rs.getBoolean(7)
+                     rs.getInt(6)
 
              );
              acclist.add(tmp);
+             System.out.println(acclist);
          }
 
      } catch(SQLException e) {
@@ -42,7 +43,7 @@ public class AccountRepositories {
 
     private Connection establishConnection() throws SQLException {
         //Lav en forbindelse
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/datingdb","root","admin123");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/datingdb","admin","Djz99pqt");
 
         return conn;
     }

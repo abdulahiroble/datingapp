@@ -14,12 +14,11 @@ public class CreateProfile {
 
 
 
-    public CreateProfile(int userid, String username, String password, String firstName, String lastName, int phone, boolean admin) {
+    public CreateProfile(int userid, String username, String password, String firstName, String lastName, int phone) {
 
         this.userid = userid;
         this.username = username;
         this.password = password;
-        this.admin = admin;
         this.phone = phone;
         this.firstName = firstName;
         this.lastName = lastName;
