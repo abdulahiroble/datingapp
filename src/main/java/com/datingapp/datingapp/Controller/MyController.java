@@ -15,18 +15,23 @@ public class MyController {
     AccountRepositories accounts = new AccountRepositories();
 
     @GetMapping("/")
-    public String index(Model model) {
+    public String index() {
+        return "index";
+    }
 
+    @GetMapping("/all")
+    public String allEmployees(Model model) {
         // Data fra databasen
         List<CreateProfile> allAccounts = accounts.showAllAccounts();
 
         // Data til viewet
         model.addAttribute("allAccounts", allAccounts);
 
+        System.out.println("Alle brugere");
         System.out.println(allAccounts);
 
-        return "index";
-
+        // returnerer viewet
+        return "all-employees";
     }
 
     @GetMapping("/kontakt")

@@ -8,42 +8,34 @@ import java.util.List;
 
 public class AccountRepositories {
 
-    public List<CreateProfile> showAllAccounts(){
+    public List<CreateProfile> showAllAccounts() {
         List<CreateProfile> acclist = new ArrayList<CreateProfile>();
 
-     try {
+        try {
 
-         //lavet et statement
-         PreparedStatement ps = establishConnection().prepareStatement("SELECT * FROM profile.user");
+            // lavet et statement
+            PreparedStatement ps = establishConnection().prepareStatement("SELECT * FROM user");
 
-         //eksekvere en query
-         ResultSet rs = ps.executeQuery();
+            // eksekvere en query
+            ResultSet rs = ps.executeQuery();
 
-         //Bruge resultatet til noget
-         while(rs.next()){
-             CreateProfile tmp = new CreateProfile(
-                     rs.getInt(1),
-                     rs.getString(2),
-                     rs.getString(3),
-                     rs.getString(4),
-                     rs.getString(5),
-                     rs.getInt(6)
+            // Bruge resultatet til noget
+            while (rs.next()) {
+                CreateProfile tmp = new CreateProfile(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4),
+                        rs.getString(5), rs.getString(6), rs.getInt(7));
+                acclist.add(tmp);
+            }
 
-             );
-             acclist.add(tmp);
-             System.out.println(acclist);
-         }
-
-     } catch(SQLException e) {
-         return null;
-
+        } catch (SQLException e) {
+            return null;
         }
+        System.out.println(acclist);
         return acclist;
     }
 
     private Connection establishConnection() throws SQLException {
-        //Lav en forbindelse
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/datingdb","admin","Djz99pqt");
+        // Lav en forbindelse
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/datingdb", "root", "password");
 
         return conn;
     }

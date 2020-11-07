@@ -2,24 +2,22 @@ package com.datingapp.datingapp.Model;
 
 public class CreateProfile {
 
-
-    private int userid;
+    private int userId;
+    private int userId2;
     private String username;
     private String password;
     private String firstName;
     private String lastName;
-    private int phone;
-    private boolean admin;
+    private int telefonnr;
+    // private boolean admin;
 
+    public CreateProfile(int userId, int userId2, String username, String password, String firstName, String lastName,
+            int telefonnr) {
 
-
-
-    public CreateProfile(int userid, String username, String password, String firstName, String lastName, int phone) {
-
-        this.userid = userid;
+        this.userId = userId;
         this.username = username;
         this.password = password;
-        this.phone = phone;
+        this.telefonnr = telefonnr;
         this.firstName = firstName;
         this.lastName = lastName;
     }
@@ -40,20 +38,12 @@ public class CreateProfile {
         this.password = Password;
     }
 
-    public boolean getAdmin() {
-        return admin;
+    public int getTelefonnr() {
+        return telefonnr;
     }
 
-    public void setAdmin(boolean admin) {
-        this.admin = admin;
-    }
-
-    public int getPhone() {
-        return phone;
-    }
-
-    public void setPhone(int phone) {
-        this.phone = phone;
+    public void setTelefonnr(int telefonnr) {
+        this.telefonnr = telefonnr;
     }
 
     public String getFirstName() {
@@ -68,17 +58,29 @@ public class CreateProfile {
         return lastName;
     }
 
-    public void setLastName(String lastName) { this.lastName = lastName; }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-    public int getUserid() { return userid; }
+    public int getUserid() {
+        return userId;
+    }
 
-    public void setUserid(int userid) { this.userid = userid; }
+    public void setuserId(int userId) {
+        this.userId = userId;
+    }
 
-    public boolean isAdmin() { return admin; }
+    public int getUserId2() {
+        return userId2;
+    }
+
+    public void setUserId2(int userId2) {
+        this.userId2 = userId2;
+    }
 
     @Override
     public String toString() {
-        return "Account{" + "user name=" + username + ", password='" + password + '\'' + ", admin='" + admin + '\''
-                + ", phone=" + phone + ", first name=" + firstName + ", last name=" + lastName;
+        return "Account{" + "user name=" + username + ", password='" + password + '\'' + '\'' + ", telefonnr="
+                + telefonnr + ", first name=" + firstName + ", last name=" + lastName;
     }
 }
