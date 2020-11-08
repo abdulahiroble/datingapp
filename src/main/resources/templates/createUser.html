@@ -1,53 +1,29 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 
-<head lang="en">
-
-    <title>Spring Framework Guru</title>
-
-    <!--/*/ <th:block th:include="fragments/headerinc :: head"></th:block> /*/-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
 
 <body>
-    <div class="container">
-        <!--/*/ <th:block th:include="fragments/header :: header"></th:block> /*/-->
+    <h1 th:text="${user}"></h1>
 
-        <h2>user Details</h2>
-        <div>
-            <form class="form-horizontal" th:object="${user}" th:action="@{/user}" method="post">
-                <input type="hidden" th:field="*{id}" />
-                <input type="hidden" th:field="*{version}" />
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">user Id:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" th:field="*{userId}" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Description:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" th:field="*{description}" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Price:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" th:field="*{price}" />
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 control-label">Image Url:</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" th:field="*{imageUrl}" />
-                    </div>
-                </div>
-                <div class="row">
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </div>
-            </form>
-        </div>
-    </div>
+    <form th:object="${user}" th:action="@{/user}">
+        <label for="fname">User Name:</label><br>
+        <input type="text" id="fname" name="fname" th:field="${user.username}"><br><br>
+        <label for="lname">Password:</label><br>
+        <input type="text" id="lname" name="lname" th:field="${user.password}"><br><br>
+        <label for="lname">Telefon nr:</label><br>
+        <input type="number" id="lname" name="lname" th:field="${user.telefonnr}"><br><br>
+        <label for="lname">first name:</label><br>
+        <input type="text" id="lname" name="lname" th:field="${user.firstName}"><br><br>
+        <label for="lname">last Name:</label><br>
+        <input type="text" id="lname" name="lname" th:field="${user.lastName}"><br><br>
 
+        <input type="submit" value="Submit" />
+    </form>
 </body>
 
 </html>

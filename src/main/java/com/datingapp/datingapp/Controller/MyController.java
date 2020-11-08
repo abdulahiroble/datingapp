@@ -21,10 +21,10 @@ public class MyController {
     @GetMapping("/all")
     public String allEmployees(Model model) {
         // Data fra databasen
+
         List<CreateProfile> allAccounts = accounts.showAllAccounts();
 
-        // Data til viewet
-        model.addAttribute("allAccounts", allAccounts);
+        // Data til viewet model.addAttribute("allAccounts", allAccounts);
 
         System.out.println(allAccounts);
 
@@ -32,34 +32,11 @@ public class MyController {
         return "all-employees";
     }
 
-    @GetMapping("createUser")
-    public String newProduct(Model model) throws Exception {
-        model.addAttribute("user", new CreateProfile(0, null, null, null, null, 0));
+    @GetMapping("/createuser")
+    public String newProduct(Model model) {
+        model.addAttribute("user", new CreateProfile(0, "hej", "med", "hej", "hej", 0));
 
-        return "createUser";
+        return "createuser";
     }
 
-    @GetMapping("/kontakt")
-    public String kontakt() {
-
-        return "kontakt";
-    }
-
-    @GetMapping("/admin")
-    public String admin() {
-
-        return "admin";
-    }
-
-    @GetMapping("/forside")
-    public String forside() {
-
-        return "forside";
-    }
-
-    @GetMapping("/chat")
-    public String chat() {
-
-        return "chat";
-    }
 }
