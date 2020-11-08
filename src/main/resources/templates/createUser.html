@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 th:text="${user}"></h1>
+
+    <form th:object="${user}" th:action="@{/user}">
+        <label for="fname">User Name:</label><br>
+        <input type="text" id="fname" name="fname" th:field="${user.username}"><br><br>
+        <label for="lname">Password:</label><br>
+        <input type="text" id="lname" name="lname" th:field="${user.password}"><br><br>
+        <label for="lname">Telefon nr:</label><br>
+        <input type="number" id="lname" name="lname" th:field="${user.telefonnr}"><br><br>
+        <label for="lname">first name:</label><br>
+        <input type="text" id="lname" name="lname" th:field="${user.firstName}"><br><br>
+        <label for="lname">last Name:</label><br>
+        <input type="text" id="lname" name="lname" th:field="${user.lastName}"><br><br>
+
+        <input type="submit" value="Submit" />
+    </form>
+</body>
+
+</html>
