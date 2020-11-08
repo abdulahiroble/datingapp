@@ -5,6 +5,7 @@ import com.datingapp.datingapp.Model.CreateProfile;
 import com.datingapp.datingapp.Repositories.AccountRepositories;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
@@ -29,6 +30,13 @@ public class MyController {
 
         // returnerer viewet
         return "all-employees";
+    }
+
+    @GetMapping("createUser")
+    public String newProduct(Model model) throws Exception {
+        model.addAttribute("user", new CreateProfile(0, null, null, null, null, 0));
+
+        return "createUser";
     }
 
     @GetMapping("/kontakt")
