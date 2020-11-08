@@ -11,7 +11,7 @@ public class CreateProfile {
     private int telefonnr;
     // private boolean admin;
 
-    public CreateProfile(int userId, int userId2, String username, String password, String firstName, String lastName,
+    public CreateProfile(int userId, String username, String password, String firstName, String lastName,
             int telefonnr) {
 
         this.userId = userId;
