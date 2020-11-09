@@ -5,6 +5,8 @@ import com.datingapp.datingapp.Model.CreateProfile;
 import com.datingapp.datingapp.Repositories.AccountRepositories;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -32,11 +34,18 @@ public class MyController {
         return "all-employees";
     }
 
-    @GetMapping("/createuser")
+    @RequestMapping("new/user")
     public String newProduct(Model model) {
-        model.addAttribute("user", new CreateProfile(0, "hej", "med", "hej", "hej", 0));
+        model.addAttribute("user", new CreateProfile(0, null, null, null, null, 0));
 
         return "createuser";
+    }
+
+    @PostMapping("new/account")
+    public String submit(@RequestBody CreateProfile request) {
+        System.out.println(request);
+
+        return "index";
     }
 
 }

@@ -1,6 +1,13 @@
 package com.datingapp.datingapp.Model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public class CreateProfile {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
 
     private int userId;
     private int userId2;
