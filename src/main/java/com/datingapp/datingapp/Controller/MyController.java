@@ -42,7 +42,7 @@ public class MyController {
     }
 
     @PostMapping("new/account")
-    public String submit(@RequestBody CreateProfile request) {
+    public String submit(@RequestBody String request) {
         System.out.println(request);
 
         return "index";
