@@ -35,6 +35,8 @@ public class AccountRepositories {
 
     }
 
+    // save profile in database
+
     private Connection establishConnection() throws SQLException {
         // Lav en forbindelse
         // Registering the Driver
