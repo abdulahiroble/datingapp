@@ -9,8 +9,7 @@ public class CreateProfile {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
-    private int userId;
-    private int userId2;
+
     private String username;
     private String password;
     private String firstName;

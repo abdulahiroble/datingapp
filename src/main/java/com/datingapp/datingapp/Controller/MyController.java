@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.context.request.WebRequest;
 
 import java.util.List;
 
@@ -42,21 +43,31 @@ public class MyController {
         return "createuser";
     }
 
-    @PostMapping("new/account")
+    /* @PostMapping("new/account")
     public String submit(@RequestBody String request) {
         System.out.println(request);
 
         return "index";
-    }
+    } */
 
-    /*
-     * @PostMapping("new/account") public String submit(CreateProfile request) {
-     * 
-     * CreateProfile saveUser = accounts.saveUserToDatabase(request);
-     * 
-     * System.out.println(saveUser);
-     * 
-     * return "index"; }
-     */
+
+     @PostMapping("new/account")
+     public String submit(WebRequest wr) {
+
+         System.out.println(wr.getParameter("fname"));
+
+         CreateProfile profileToSave = new CreateProfile(wr.getParameter(""));
+
+        accounts.saveUserToDatabase(profileToSave);
+
+
+    //CreateProfile saveUser = accounts.saveUserToDatabase(request);
+
+    //System.out.println(request);
+
+     //System.out.println(saveUser);
+
+    return "index"; }
+
 
 }

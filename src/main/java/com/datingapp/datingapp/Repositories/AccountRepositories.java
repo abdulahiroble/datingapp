@@ -28,6 +28,8 @@ public class AccountRepositories {
                 CreateProfile tmp = new CreateProfile(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
                         rs.getString(5), rs.getInt(6));
                 acclist.add(tmp);
+
+
             }
 
         } catch (SQLException e) {
@@ -47,7 +49,7 @@ public class AccountRepositories {
 
             // create the mysql insert preparedstatement
             PreparedStatement preparedStmt = conn.prepareStatement(st);
-            preparedStmt.setInt(0, 0);
+
             preparedStmt.setInt(1, 2);
             preparedStmt.setString(2, "hej");
             preparedStmt.setString(3, "ff");
