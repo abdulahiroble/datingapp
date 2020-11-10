@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 
 import java.util.List;
@@ -30,7 +31,9 @@ public class MyController {
         // Data til viewet
         model.addAttribute("allAccounts", allAccounts);
 
-        System.out.println(allAccounts);
+        accounts.saveUserToDatabase();
+
+        // System.out.println(allAccounts);
 
         // returnerer viewet
         return "all-employees";
@@ -38,36 +41,30 @@ public class MyController {
 
     @RequestMapping("new/user")
     public String newProduct(Model model) {
-        model.addAttribute("user", new CreateProfile(2, null, null, null, null, 0));
+        model.addAttribute("user", new CreateProfile(null, null, null, null, null));
 
         return "createuser";
     }
 
-    /* @PostMapping("new/account")
-    public String submit(@RequestBody String request) {
-        System.out.println(request);
+    @PostMapping("new/account")
+    public String submit(WebRequest wr, CreateProfile request) {
+
+        System.out.println(wr.getParameter("user"));
+        System.out.println(wr.getParameter("firstname"));
+        System.out.println(wr.getParameter("lastname"));
+        System.out.println(wr.getParameter("phone"));
+        System.out.println(wr.getParameter("email"));
+
+        CreateProfile profileToSave = new CreateProfile(wr.getParameter(null), wr.getParameter(null),
+                wr.getParameter(null), wr.getParameter(null), wr.getParameter(null));
+
+        // accounts.saveUserToDatabase(profileToSave);
+
+        // System.out.println(request);
+
+        // System.out.println(saveUser);
 
         return "index";
-    } */
-
-
-     @PostMapping("new/account")
-     public String submit(WebRequest wr) {
-
-         System.out.println(wr.getParameter("fname"));
-
-         CreateProfile profileToSave = new CreateProfile(wr.getParameter(""));
-
-        accounts.saveUserToDatabase(profileToSave);
-
-
-    //CreateProfile saveUser = accounts.saveUserToDatabase(request);
-
-    //System.out.println(request);
-
-     //System.out.println(saveUser);
-
-    return "index"; }
-
+    }
 
 }

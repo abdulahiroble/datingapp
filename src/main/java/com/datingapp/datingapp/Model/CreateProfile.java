@@ -9,23 +9,20 @@ public class CreateProfile {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
 
-
     private String username;
-    private String password;
     private String firstName;
     private String lastName;
-    private int telefonnr;
+    private String telefonnr;
+    private String email;
     // private boolean admin;
 
-    public CreateProfile(int userId, String username, String password, String firstName, String lastName,
-            int telefonnr) {
+    public CreateProfile(String username, String firstName, String lastName, String telefonnr, String email) {
 
-        this.userId = userId;
         this.username = username;
-        this.password = password;
         this.telefonnr = telefonnr;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.email = email;
     }
 
     public String getUsername() {
@@ -36,19 +33,19 @@ public class CreateProfile {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
+    public String getEmail() {
+        return email;
     }
 
-    public void setPassword(String Password) {
-        this.password = Password;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public int getTelefonnr() {
+    public String getTelefonnr() {
         return telefonnr;
     }
 
-    public void setTelefonnr(int telefonnr) {
+    public void setTelefonnr(String telefonnr) {
         this.telefonnr = telefonnr;
     }
 
@@ -66,22 +63,6 @@ public class CreateProfile {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public int getUserid() {
-        return userId;
-    }
-
-    public void setuserId(int userId) {
-        this.userId = userId;
-    }
-
-    public int getUserId2() {
-        return userId2;
-    }
-
-    public void setUserId2(int userId2) {
-        this.userId2 = userId2;
     }
 
     @Override
