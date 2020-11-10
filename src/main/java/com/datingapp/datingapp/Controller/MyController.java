@@ -26,7 +26,8 @@ public class MyController {
 
         List<CreateProfile> allAccounts = accounts.showAllAccounts();
 
-        // Data til viewet model.addAttribute("allAccounts", allAccounts);
+        // Data til viewet
+        model.addAttribute("allAccounts", allAccounts);
 
         System.out.println(allAccounts);
 
@@ -36,7 +37,7 @@ public class MyController {
 
     @RequestMapping("new/user")
     public String newProduct(Model model) {
-        model.addAttribute("user", new CreateProfile(0, null, null, null, null, 0));
+        model.addAttribute("user", new CreateProfile(2, null, null, null, null, 0));
 
         return "createuser";
     }
@@ -47,5 +48,15 @@ public class MyController {
 
         return "index";
     }
+
+    /*
+     * @PostMapping("new/account") public String submit(CreateProfile request) {
+     * 
+     * CreateProfile saveUser = accounts.saveUserToDatabase(request);
+     * 
+     * System.out.println(saveUser);
+     * 
+     * return "index"; }
+     */
 
 }
