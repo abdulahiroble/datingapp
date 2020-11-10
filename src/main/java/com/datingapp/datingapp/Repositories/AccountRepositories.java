@@ -11,6 +11,8 @@ import java.util.List;
 
 public class AccountRepositories {
 
+    Connection conn;
+
     public List<CreateProfile> showAllAccounts() {
         List<CreateProfile> acclist = new ArrayList<CreateProfile>();
 
@@ -35,14 +37,42 @@ public class AccountRepositories {
 
     }
 
-    // save profile in database
+    public CreateProfile saveUserToDatabase(CreateProfile request) {
+        // CreateProfile newUser;
+        // lavet et statement
+        CreateProfile acclist2 = null;
+        try {
+
+            String st = ("INSERT INTO Customers " + "VALUES (?,?, ?, ?, ?, ?, ?)");
+
+            // create the mysql insert preparedstatement
+            PreparedStatement preparedStmt = conn.prepareStatement(st);
+            preparedStmt.setInt(0, 0);
+            preparedStmt.setInt(1, 2);
+            preparedStmt.setString(2, "hej");
+            preparedStmt.setString(3, "ff");
+            preparedStmt.setInt(4, 2);
+            preparedStmt.setString(5, "f");
+            preparedStmt.setString(6, "hej");
+
+            preparedStmt.execute();
+
+            conn.close();
+
+        } catch (Exception e) {
+            System.out.println("Error could not save to database " + e);
+        }
+        return acclist2;
+
+    }
 
     private Connection establishConnection() throws SQLException {
         // Lav en forbindelse
         // Registering the Driver
 
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/profile", "root", "password");
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/profile", "root", "password");
 
         return conn;
     }
+
 }

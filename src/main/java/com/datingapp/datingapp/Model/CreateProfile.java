@@ -87,7 +87,6 @@ public class CreateProfile {
 
     @Override
     public String toString() {
-        return "Account{" + "user name=" + username + ", password='" + password + '\'' + '\'' + ", telefonnr="
-                + telefonnr + ", first name=" + firstName + ", last name=" + lastName;
+        return username + telefonnr + firstName + lastName + '\n';
     }
 }
