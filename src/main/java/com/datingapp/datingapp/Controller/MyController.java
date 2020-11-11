@@ -1,28 +1,21 @@
 package com.datingapp.datingapp.Controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import com.datingapp.datingapp.Model.CreateProfile;
-import com.datingapp.datingapp.Repositories.AccountRepositories;
 import com.datingapp.datingapp.Services.UserService;
 
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.context.request.WebRequest;
 
-import java.util.List;
-import java.util.Map;
+import org.springframework.beans.factory.annotation.Autowired;
 
 @Controller
 public class MyController {
-    AccountRepositories accounts = new AccountRepositories();
+    // AccountRepositories accounts = new AccountRepositories();
 
+    @Autowired
     private UserService userService;
 
     @GetMapping("/")
@@ -48,17 +41,23 @@ public class MyController {
     }
 
     @GetMapping("/new")
-    public String newProduct(Model model) {
+    public String newUserForm(Model model) {
         // Model attribut til at binde form data
         CreateProfile user = new CreateProfile();
         model.addAttribute("user", user);
-        return "createuser";
+        return "newuserform";
     }
 
     @PostMapping("/saveUser")
     public String saveUser(@ModelAttribute("user") CreateProfile user) {
+
+        try {
+            userService.saveUser(user);
+        } catch (Exception e) {
+            System.out.println("Error can't save to database " + e);
+        }
         // save employee to database
-        userService.saveUser(user);
+
         return "redirect:/";
     }
 
