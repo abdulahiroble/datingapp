@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <title>Forside</title>
 </head>
 
@@ -26,49 +29,39 @@
     </header>
 
 
-    <section id="intro" class="main style1 dark fullscreen">
-        <div class="profil-visning">
-            <div class="card">
-                <img src="/w3images/team2.jpg" alt="John" style="width:100%">
-                <h1>John Doe</h1>
-                <p class="title">CEO & Founder, Example</p>
-                <p>Harvard University</p>
-                <div style="margin: 24px 0;">
-                    <a href="#"><i class="fa fa-dribbble"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                </div>
-                <p><button>Contact</button></p>
-            </div>
-            <div class="card" style="padding-left: 30px; padding-right: 30px;">
-                <img src="/w3images/team2.jpg" alt="John" style="width:100%">
-                <h1>John Doe</h1>
-                <p class="title">CEO & Founder, Example</p>
-                <p>Harvard University</p>
-                <div style="margin: 24px 0;">
-                    <a href="#"><i class="fa fa-dribbble"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                </div>
-                <p><button>Contact</button></p>
-            </div>
-            <div class="card">
-                <img src="/w3images/team2.jpg" alt="John" style="width:100%">
-                <h1>John Doe</h1>
-                <p class="title">CEO & Founder, Example</p>
-                <p>Harvard University</p>
-                <div style="margin: 24px 0;">
-                    <a href="#"><i class="fa fa-dribbble"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                </div>
-                <p><button>Contact</button></p>
-            </div>
+    <section id="intro" class="main style1 light fullscreen">
+        <table border="1" class="table table-striped table-responsive-md">
+            <thead>
+                <tr>
+                    <th>
+                        <a th:href="@{'/page/' + ${currentPage} + '?sortField=firstName&sortDir=' + ${reverseSortDir}}">
+                            Employee First Name</a>
+                    </th>
+                    <th>
+                        <a th:href="@{'/page/' + ${currentPage} + '?sortField=lastName&sortDir=' + ${reverseSortDir}}">
+                            Employee Last Name</a>
+                    </th>
+                    <th>
+                        <a th:href="@{'/page/' + ${currentPage} + '?sortField=email&sortDir=' + ${reverseSortDir}}">
+                            Employee Email</a>
+                    </th>
+                    <th> Actions </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="employee : ${listEmployees}">
+                    <td th:text="${employee.firstName}"></td>
+                    <td th:text="${employee.lastName}"></td>
+                    <td th:text="${employee.email}"></td>
+                    <td> <a th:href="@{/showFormForUpdate/{id}(id=${employee.id})}" class="btn btn-primary">Update</a>
+                        <a th:href="@{/deleteEmployee/{id}(id=${employee.id})}" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
 
-            <h1 th:text="${allAccounts}"></h1>
+        <h1 th:text="${allAccounts}"></h1>
         </div>
     </section>
 

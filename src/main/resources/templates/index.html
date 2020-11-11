@@ -43,7 +43,32 @@
             </header>
             <p>Welcome to <strong>Flame</strong> a place to find your next hook up
         </div>
+
     </section>
+
+    <div class="background form">
+        <form action="#" th:action="@{/saveUser}" method="POST" th:object="${user}">
+
+            <label for="user">Brugernavn:</label><br>
+            <input type="text" id="user" th:field="*{username}" name="user"><br><br>
+            <label for="firstname">Fornavn:</label><br>
+            <input type="text" id="firstname" th:field="*{firstName}" name="firstname"><br><br>
+            <label for="lastname">Efternavn:</label><br>
+            <input type="text" id="lastname" name="lastname" th:field="*{lastName}"><br><br>
+
+            <label for="phone">Telefon nr</label><br>
+            <input type="text" id="phone" name="phone" th:field="*{telefonnr}"><br><br>
+            <label for="email">Email</label><br>
+            <input type="text" id="email" name="email" th:field="*{email}"><br><br>
+
+            <label for="pinkode">Pinkode</label><br>
+            <input type="password" id="pinkode" name="pinkode" th:field="*{pinkode}"><br><br>
+
+            <input type="submit" value="Submit" style="text-align: center" />
+        </form>
+    </div>
+
+
 
 
     <footer style="background-color: green;">

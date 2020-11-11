@@ -29,14 +29,11 @@ public class CreateProfile {
 
     @Column(name = "email")
     private String email;
-    // private boolean admin;
 
-    /*
-     * public CreateProfile(String username, String firstName, String lastName,
-     * String telefonnr, String email) { super(); this.username = username;
-     * this.telefonnr = telefonnr; this.firstName = firstName; this.lastName =
-     * lastName; this.email = email; }
-     */
+    @Column(name = "pinkode")
+    private int pinkode;
+
+    // private boolean admin;
 
     public String getUsername() {
         return username;
@@ -52,6 +49,14 @@ public class CreateProfile {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int getPinkode() {
+        return pinkode;
+    }
+
+    public void setPinkode(int pinkode) {
+        this.pinkode = pinkode;
     }
 
     public String getTelefonnr() {

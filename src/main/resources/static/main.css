@@ -530,6 +530,23 @@ input, select, textarea {
 			z-index: 100000;
 		}
 
+		.background {
+			background: gray;
+			border-radius: 5px;
+			width: 650px;
+			margin-left: 525px;
+			border: none;
+		}
+
+		.form {
+			
+			border-radius: 5px;
+			padding: 20px;
+			width: 800px;
+			color: #e5e6e7;
+			text-align: center;
+		}
+
 	@media (-webkit-min-device-pixel-ratio: 2) {
 
 		body:before {
