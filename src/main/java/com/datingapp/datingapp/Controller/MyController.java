@@ -1,21 +1,29 @@
 package com.datingapp.datingapp.Controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import com.datingapp.datingapp.Model.CreateProfile;
 import com.datingapp.datingapp.Repositories.AccountRepositories;
+import com.datingapp.datingapp.Services.UserService;
+
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.WebRequest;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class MyController {
     AccountRepositories accounts = new AccountRepositories();
+
+    private UserService userService;
 
     @GetMapping("/")
     public String index() {
@@ -26,12 +34,12 @@ public class MyController {
     public String allEmployees(Model model) {
         // Data fra databasen
 
-        List<CreateProfile> allAccounts = accounts.showAllAccounts();
+        // List<CreateProfile> allAccounts = accounts.showAllAccounts();
 
         // Data til viewet
-        model.addAttribute("allAccounts", allAccounts);
+        // model.addAttribute("allAccounts", allAccounts);
 
-        accounts.saveUserToDatabase();
+        // accounts.saveUserToDatabase();
 
         // System.out.println(allAccounts);
 
@@ -39,32 +47,35 @@ public class MyController {
         return "all-employees";
     }
 
-    @RequestMapping("new/user")
+    @GetMapping("/new")
     public String newProduct(Model model) {
-        model.addAttribute("user", new CreateProfile(null, null, null, null, null));
-
+        // Model attribut til at binde form data
+        CreateProfile user = new CreateProfile();
+        model.addAttribute("user", user);
         return "createuser";
     }
 
-    @PostMapping("new/account")
-    public String submit(WebRequest wr, CreateProfile request) {
-
-        System.out.println(wr.getParameter("user"));
-        System.out.println(wr.getParameter("firstname"));
-        System.out.println(wr.getParameter("lastname"));
-        System.out.println(wr.getParameter("phone"));
-        System.out.println(wr.getParameter("email"));
-
-        CreateProfile profileToSave = new CreateProfile(wr.getParameter(null), wr.getParameter(null),
-                wr.getParameter(null), wr.getParameter(null), wr.getParameter(null));
-
-        // accounts.saveUserToDatabase(profileToSave);
-
-        // System.out.println(request);
-
-        // System.out.println(saveUser);
-
-        return "index";
+    @PostMapping("/saveUser")
+    public String saveUser(@ModelAttribute("user") CreateProfile user) {
+        // save employee to database
+        userService.saveUser(user);
+        return "redirect:/";
     }
+
+    /*
+     * @PostMapping(path = "new/account", consumes =
+     * "application/x-www-form-urlencoded") public String submit(WebRequest wr,
+     * CreateProfile request) {
+     * 
+     * CreateProfile profileToSave = new CreateProfile(wr.getParameter("user"),
+     * wr.getParameter("firstname"), wr.getParameter("lastname"),
+     * wr.getParameter("phone"), wr.getParameter("email"));
+     * 
+     * accounts.saveUserToDatabase(profileToSave);
+     * 
+     * System.out.println(profileToSave);
+     * 
+     * return "index"; }
+     */
 
 }
