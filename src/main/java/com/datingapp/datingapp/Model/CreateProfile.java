@@ -31,7 +31,7 @@ public class CreateProfile {
     private String email;
 
     @Column(name = "pinkode")
-    private int pinkode;
+    private String pinkode;
 
     // private boolean admin;
 
@@ -51,11 +51,11 @@ public class CreateProfile {
         this.email = email;
     }
 
-    public int getPinkode() {
+    public String getPinkode() {
         return pinkode;
     }
 
-    public void setPinkode(int pinkode) {
+    public void setPinkode(String pinkode) {
         this.pinkode = pinkode;
     }
 

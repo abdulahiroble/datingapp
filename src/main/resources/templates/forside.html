@@ -34,34 +34,35 @@
             <thead>
                 <tr>
                     <th>
-                        <a th:href="@{'/page/' + ${currentPage} + '?sortField=firstName&sortDir=' + ${reverseSortDir}}">
-                            Employee First Name</a>
+                        <!-- <a th:href="@{'/page/' + ${currentPage} + '?sortField=firstName&sortDir=' + ${reverseSortDir}}"> -->
+                        Employee First Name</a>
                     </th>
                     <th>
-                        <a th:href="@{'/page/' + ${currentPage} + '?sortField=lastName&sortDir=' + ${reverseSortDir}}">
-                            Employee Last Name</a>
+                        <!-- <a th:href="@{'/page/' + ${currentPage} + '?sortField=lastName&sortDir=' + ${reverseSortDir}}"> -->
+                        Employee Last Name</a>
                     </th>
                     <th>
-                        <a th:href="@{'/page/' + ${currentPage} + '?sortField=email&sortDir=' + ${reverseSortDir}}">
-                            Employee Email</a>
+                        <!-- <a th:href="@{'/page/' + ${currentPage} + '?sortField=email&sortDir=' + ${reverseSortDir}}"> -->
+                        Employee Email</a>
                     </th>
                     <th> Actions </th>
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="employee : ${listEmployees}">
-                    <td th:text="${employee.firstName}"></td>
-                    <td th:text="${employee.lastName}"></td>
-                    <td th:text="${employee.email}"></td>
-                    <td> <a th:href="@{/showFormForUpdate/{id}(id=${employee.id})}" class="btn btn-primary">Update</a>
-                        <a th:href="@{/deleteEmployee/{id}(id=${employee.id})}" class="btn btn-danger">Delete</a>
+                <tr th:each="user : ${listUser}">
+                    <td th:text="${user.username}"></td>
+                    <td th:text="${user.firstName}"></td>
+                    <td th:text="${user.lastName}"></td>
+                    <td th:text="${user.telefonnr}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td th:text="${user.pinkode}"></td>
+                    <td> <a class="btn btn-primary">Update</a>
+                        <a class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
             </tbody>
         </table>
         </div>
-
-        <h1 th:text="${allAccounts}"></h1>
         </div>
     </section>
 
