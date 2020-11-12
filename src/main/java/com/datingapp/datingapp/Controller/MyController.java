@@ -74,17 +74,19 @@ public class MyController {
         return "updateuser";
     }
 
-    /*
-     * @GetMapping("/sendMessage/{id}") public String
-     * sendMessage(@PathVariable(value = "id") long id, Model model) {
-     * 
-     * try { CreateProfile user = userService.getUserById(id);
-     * 
-     * model.addAttribute("user", user); } catch (Exception e) {
-     * System.out.println("Error can't send message to person " + e); }
-     * 
-     * return "updateuser"; }
-     */
+    @GetMapping("/sendMessage/{id}")
+    public String sendMessage(@PathVariable(value = "id") long id, Model model) {
+
+        try {
+            CreateProfile user = userService.getUserById(id);
+
+            model.addAttribute("user", user);
+        } catch (Exception e) {
+            System.out.println("Error can't send message to person " + e);
+        }
+
+        return "sendbesked";
+    }
 
     @GetMapping("/forside/{forsideNo}")
     public String showUserList(@PathVariable(value = "forsideNo") int pageNo, Model model) {
