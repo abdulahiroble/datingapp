@@ -10,5 +10,9 @@ public interface UserService {
 
     void saveUser(CreateProfile user);
 
-    Page<CreateProfile> findPaginated(int pageNo, int pageSize);
+    void deleteUser(long id);
+
+    CreateProfile getUserById(long id);
+
+    Page<CreateProfile> showUserList(int pageNo, int pageSize);
 }

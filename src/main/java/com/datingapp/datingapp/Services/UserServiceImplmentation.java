@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImplmentation implements UserService {
@@ -31,9 +32,27 @@ public class UserServiceImplmentation implements UserService {
     }
 
     @Override
-    public Page<CreateProfile> findPaginated(int pageNo, int pageSize) {
+    public void deleteUser(long id) {
+        this.userRepository.deleteById(id);
+    }
+
+    @Override
+    public Page<CreateProfile> showUserList(int pageNo, int pageSize) {
 
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
         return this.userRepository.findAll(pageable);
+    }
+
+    @Override
+    public CreateProfile getUserById(long id) {
+        Optional<CreateProfile> optional = userRepository.findById(id);
+        CreateProfile user = null;
+
+        if (optional.isPresent()) {
+            user = optional.get();
+        } else {
+            throw new RuntimeException(" User not found by id " + id);
+        }
+        return user;
     }
 }

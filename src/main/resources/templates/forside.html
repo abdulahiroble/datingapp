@@ -13,20 +13,7 @@
 
 <body>
 
-    <h1>Velkommen til flame</h1>
-    <!-- Header -->
-    <header id="header">
-        <h1>Flame</h1>
-        <nav>
-            <ul>
-                <li><a href="#intro">Intro</a></li>
-                <li><a href="#one">What I Do</a></li>
-                <li><a href="#two">Who I Am</a></li>
-                <li><a href="#work">My Work</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <h1>Bruger Forside</h1>
 
 
     <section id="intro" class="main style1 light fullscreen">
@@ -34,15 +21,12 @@
             <thead>
                 <tr>
                     <th>
-                        <!-- <a th:href="@{'/page/' + ${currentPage} + '?sortField=firstName&sortDir=' + ${reverseSortDir}}"> -->
                         Employee First Name</a>
                     </th>
                     <th>
-                        <!-- <a th:href="@{'/page/' + ${currentPage} + '?sortField=lastName&sortDir=' + ${reverseSortDir}}"> -->
                         Employee Last Name</a>
                     </th>
                     <th>
-                        <!-- <a th:href="@{'/page/' + ${currentPage} + '?sortField=email&sortDir=' + ${reverseSortDir}}"> -->
                         Employee Email</a>
                     </th>
                     <th> Actions </th>
@@ -56,8 +40,9 @@
                     <td th:text="${user.telefonnr}"></td>
                     <td th:text="${user.email}"></td>
                     <td th:text="${user.pinkode}"></td>
-                    <td> <a class="btn btn-primary">Update</a>
-                        <a class="btn btn-danger">Delete</a>
+                    <td>
+                        <a th:href="@{/userFormUpdate/{id}(id=${user.id})}" class="btn btn-primary">Update</a>
+                        <a th:href="@{/deleteUser/{id}(id=${user.id})}" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
             </tbody>
