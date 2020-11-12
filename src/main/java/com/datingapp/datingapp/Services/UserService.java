@@ -10,5 +10,5 @@ public interface UserService {
 
     void saveUser(CreateProfile user);
 
-    Page<CreateProfile> findPaginated(int pageNo, int pageSize, String sortField, String sortDirection);
+    Page<CreateProfile> findPaginated(int pageNo, int pageSize);
 }

@@ -31,7 +31,7 @@ public class MyController {
     // display list of employees
     @GetMapping("/forside")
     public String viewHomePage(Model model) {
-        return findPaginated(1, "firstName", "asc", model);
+        return findPaginated(1, model);
     }
 
     @GetMapping("/")
@@ -55,26 +55,14 @@ public class MyController {
     }
 
     @GetMapping("/forside/{forsideNo}")
-    public String findPaginated(@PathVariable(value = "forsideNo") int pageNo,
-            @RequestParam("sortField") String sortField, @RequestParam("sortDir") String sortDir, Model model) {
+    public String findPaginated(@PathVariable(value = "forsideNo") int pageNo, Model model) {
 
         try {
-
             int pageSize = 10;
 
-            Page<CreateProfile> page = userService.findPaginated(pageNo, pageSize, sortField, sortDir);
+            Page<CreateProfile> page = userService.findPaginated(pageNo, pageSize);
             ;
             List<CreateProfile> listUser = page.getContent();
-
-            /*
-             * model.addAttribute("currentPage", pageNo); model.addAttribute("totalPages",
-             * page.getTotalPages()); model.addAttribute("totalItems",
-             * page.getTotalElements());
-             * 
-             * model.addAttribute("sortField", sortField); model.addAttribute("sortDir",
-             * sortDir); model.addAttribute("reverseSortDir", sortDir.equals("asc") ? "desc"
-             * : "asc");
-             */
 
             model.addAttribute("listUser", listUser);
         } catch (Exception e) {

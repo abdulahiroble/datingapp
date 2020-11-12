@@ -31,11 +31,9 @@ public class UserServiceImplmentation implements UserService {
     }
 
     @Override
-    public Page<CreateProfile> findPaginated(int pageNo, int pageSize, String sortField, String sortDirection) {
-        Sort sort = sortDirection.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortField).ascending()
-                : Sort.by(sortField).descending();
+    public Page<CreateProfile> findPaginated(int pageNo, int pageSize) {
 
-        Pageable pageable = PageRequest.of(pageNo - 1, pageSize, sort);
+        Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
         return this.userRepository.findAll(pageable);
     }
 }
