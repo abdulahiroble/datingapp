@@ -9,3 +9,15 @@ form {
     width: 800px;
 
 }
+
+body {
+    background-image: url("src=src/main/resources/static/images/local fashion.png");
+}
+
+.faktaer {
+    display: flex;
+    flex-direction: row;
+    padding: 40px;
+    margin: 20px;
+    line-height: 30px;
+}

@@ -28,6 +28,15 @@ public class MyController {
         return showUserList(1, model);
     }
 
+    /*
+     * @GetMapping("/update") public String update() { return "updateuser"; }
+     */
+
+    @GetMapping("/faq")
+    public String faq() {
+        return "faq";
+    }
+
     @GetMapping("/")
     public String newUserForm(Model model) {
         // Model attribut til at binde form data

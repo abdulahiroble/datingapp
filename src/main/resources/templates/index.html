@@ -5,38 +5,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="Style.css">
     <noscript>
         <link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-    <title>One Night Stand</title>
+    <title>Flame Dating</title>
 </head>
 
 <body>
 
-    <head>
-        <title>Big Picture by HTML5 UP</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-        <link rel="stylesheet" href="assets/css/main.css" />
-        <noscript>
-            <link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-    </head>
-
     <!-- Header -->
     <header id="header">
-        <h1>Flame</h1>
+
+        <a href="/forside"><img th:src="@{images/local fashion.png}"
+                src="src/main/resources/static/images/local fashion.png" style="width: 110px; margin-top: -1%;"
+                alt="logo"></a>
+
+
         <nav>
             <ul>
-                <li><a href="#intro">Intro</a></li>
-                <li><a href="#one">What I Do</a></li>
-                <li><a href="#two">Who I Am</a></li>
-                <li><a href="#work">My Work</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="/">Opret Profil</a></li>
+                <li><a href="/forside">Forside</a></li>
+                <li><a href="/faq">FAQ</a></li>
             </ul>
         </nav>
     </header>
 
+    <!-- <img th:src="@{images/couples02-0002.jpg}" src="src/main/resources/static/images/couples02-0002.jpg" alt=""> -->
+
     <!-- Intro -->
-    <section id="intro" class="main style1 dark fullscreen">
+    <section id="intro" class="main style1 dark ">
         <div class="content">
             <header>
                 <h2>Hey.</h2>
@@ -47,35 +44,40 @@
     </section>
 
     <div class="background form">
-        <form class="form" action="#" th:action="@{/saveUser}" method="POST" th:object="${user}">
+        <form action="#" th:action="@{/saveUser}" method="POST" th:object="${user}">
 
-            <label for="user">Brugernavn:</label><br>
-            <input type="text" required id="user" th:field="*{username}" name="user"><br><br>
+            <label for="user" style="width: 55%;">Brugernavn:</label><br>
+            <input type="text" required id="user" th:field="*{username}" name="user" style="width: 55%;"><br><br>
 
-            <label for="firstname">Fornavn:</label><br>
-            <input type="text" required id="firstname" th:field="*{firstName}" name="firstname"><br><br>
+            <label for="firstname" style="width: 55%;">Fornavn:</label><br>
+            <input type="text" required id="firstname" th:field="*{firstName}" name="firstname"
+                style="width: 55%;"><br><br>
 
-            <label for="lastname">Efternavn:</label><br>
-            <input type="text" required id="lastname" name="lastname" th:field="*{lastName}"><br><br>
+            <label for="lastname" style="width: 55%;">Efternavn:</label><br>
+            <input type="text" required id="lastname" name="lastname" th:field="*{lastName}"
+                style="width: 55%;"><br><br>
 
-            <label for="phone">Telefon nr</label><br>
-            <input type="text" required id="phone" name="phone" th:field="*{telefonnr}"><br><br>
+            <label for="phone" style="width: 55%;">Telefon nr</label><br>
+            <input type="text" required id="phone" name="phone" th:field="*{telefonnr}" style="width: 55%;"><br><br>
 
-            <label for="email">Email</label><br>
-            <input type="text" required id="email" name="email" th:field="*{email}"><br><br>
+            <label for="email" style="width: 55%;">Email</label><br>
+            <input type="text" required id="email" name="email" th:field="*{email}" style="width: 55%;"><br><br>
 
-            <label for="description">Beskrivelse:</label><br>
-            <input type="field" required id="description" name="description" th:field="*{description}"><br><br>
+            <label for="description" style="width: 55%;">Beskrivelse:</label><br>
+            <input type="text" required id="description" name="description" th:field="*{description}"
+                style="width: 55%;"><br><br>
 
-            <label for="pinkode">Pinkode</label><br>
-            <input type="password" required id="pinkode" name="pinkode" th:field="*{pinkode}"><br><br>
+            <label for="pinkode" style="width: 55%;">Pinkode</label><br>
+            <input type="password" required id="pinkode" name="pinkode" th:field="*{pinkode}"
+                style="width: 55%;"><br><br>
 
-            <label for="profilepicture">Profilbillede</label><br>
-            <input type="file" required id="profilepicture" name="profilepicture" th:field="*{profilepicture}"><br><br>
+            <label for="profilepicture" style="width: 55%;">Profilbillede</label><br>
+            <input type="file" required id="profilepicture" name="profilepicture" th:field="*{profilepicture}"
+                style="width: 75%;"><br><br>
 
 
 
-            <input type="submit" value="Opret Profil" style="text-align: center" />
+            <input type="submit" value="Opret Profil" style="margin-left: -45%; width: 60%;" />
         </form>
     </div>
 </body>
