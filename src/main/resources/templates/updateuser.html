@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://java.sun.com/jsf/composite">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update</title>
+    <link th:href="@{css/style.css}" rel="stylesheet" />
+    <title>Opdater bruger</title>
 </head>
 
 <body>
 
-    <form action="#" th:action="@{/saveUser}" th:object="${user}" method="POST">
+    <form class="form" action="#" th:action="@{/saveUser}" th:object="${user}" method="POST">
 
         <!-- Add hidden form field to handle update -->
         <!-- <input type="hidden" th:field="*{id}" /> -->
@@ -20,16 +21,17 @@
         <input type="text" id="firstname" th:field="*{firstName}" name="firstname"><br><br>
         <label for="lastname">Efternavn:</label><br>
         <input type="text" id="lastname" name="lastname" th:field="*{lastName}"><br><br>
-
         <label for="phone">Telefon nr</label><br>
         <input type="text" id="phone" name="phone" th:field="*{telefonnr}"><br><br>
         <label for="email">Email</label><br>
         <input type="text" id="email" name="email" th:field="*{email}"><br><br>
-
+        <label for="description">Beskrivelse</label><br>
+        <input type="field" id="description" name="description" th:field="*{description}"><br><br>
         <label for="pinkode">Pinkode</label><br>
         <input type="text" id="pinkode" name="pinkode" th:field="*{pinkode}"><br><br>
-
-        <button type="submit" class="btn btn-info col-2"> Updater bruger</button>
+        <label for="profilepic">Profilbillede</label><br>
+        <input type="text" id="profilepic" name="profilepic" th:field="*{profilepic}"><br><br>
+        <button type="submit" class="btn btn-info col-2"> Opdater bruger</button>
     </form>
 
 </body>

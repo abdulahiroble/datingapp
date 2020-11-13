@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="www.thymeleaf.org">
+<html lang="en" xmlns:th="http://java.sun.com/jsf/composite">
 
 <head>
     <meta charset="UTF-8">
@@ -12,14 +12,13 @@
 
     <form action="#" th:action="@{/saveUser}" method="POST" th:object="${user}">
 
-        <label for="user">User Name:</label><br>
+        <label for="user">Brugernavn:</label><br>
         <input type="text" id="user" th:field="*{username}" name="user"><br><br>
-        <label for="firstname">Firstname:</label><br>
+        <label for="firstname">Fornavn:</label><br>
         <input type="text" id="firstname" th:field="*{firstName}" name="firstname"><br><br>
-        <label for="lastname">Lastname:</label><br>
+        <label for="lastname">Efternavn:</label><br>
         <input type="text" id="lastname" name="lastname" th:field="*{lastName}"><br><br>
-
-        <label for="phone">Phone</label><br>
+        <label for="phone">Telefon:</label><br>
         <input type="text" id="phone" name="phone" th:field="*{telefonnr}"><br><br>
         <label for="email">Email</label><br>
         <input type="text" id="email" name="email" th:field="*{email}"><br><br>
