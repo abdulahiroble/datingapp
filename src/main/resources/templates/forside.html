@@ -39,7 +39,6 @@
                     <td th:text="${user.lastName}"></td>
                     <td th:text="${user.telefonnr}"></td>
                     <td th:text="${user.email}"></td>
-                    <td th:text="${user.pinkode}"></td>
                     <td>
                         <a th:href="@{/userFormUpdate/{id}(id=${user.id})}" class="btn btn-primary">Update</a>
                         <a th:href="@{/deleteUser/{id}(id=${user.id})}" class="btn btn-danger">Delete</a>
