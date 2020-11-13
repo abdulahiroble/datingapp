@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://java.sun.com/jsf/composite">
 
 <head>
     <meta charset="UTF-8">
@@ -47,24 +47,35 @@
     </section>
 
     <div class="background form">
-        <form action="#" th:action="@{/saveUser}" method="POST" th:object="${user}">
+        <form class="form" action="#" th:action="@{/saveUser}" method="POST" th:object="${user}">
 
             <label for="user">Brugernavn:</label><br>
             <input type="text" required id="user" th:field="*{username}" name="user"><br><br>
+
             <label for="firstname">Fornavn:</label><br>
             <input type="text" required id="firstname" th:field="*{firstName}" name="firstname"><br><br>
+
             <label for="lastname">Efternavn:</label><br>
             <input type="text" required id="lastname" name="lastname" th:field="*{lastName}"><br><br>
 
             <label for="phone">Telefon nr</label><br>
             <input type="text" required id="phone" name="phone" th:field="*{telefonnr}"><br><br>
+
             <label for="email">Email</label><br>
             <input type="text" required id="email" name="email" th:field="*{email}"><br><br>
+
+            <label for="description">Beskrivelse:</label><br>
+            <input type="field" required id="description" name="description" th:field="*{description}"><br><br>
 
             <label for="pinkode">Pinkode</label><br>
             <input type="password" required id="pinkode" name="pinkode" th:field="*{pinkode}"><br><br>
 
-            <input type="submit" value="Submit" style="text-align: center" />
+            <label for="profilepicture">Profilbillede</label><br>
+            <input type="file" required id="profilepicture" name="profilepicture" th:field="*{profilepicture}"><br><br>
+
+
+
+            <input type="submit" value="Opret Profil" style="text-align: center" />
         </form>
     </div>
 </body>

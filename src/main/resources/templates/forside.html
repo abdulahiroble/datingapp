@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://java.sun.com/jsf/composite">
 
 <head>
     <meta charset="UTF-8">
@@ -21,24 +21,30 @@
             <thead>
                 <tr>
                     <th>
-                        Employee First Name</a>
+                        Profilbillede</a>
                     </th>
                     <th>
-                        Employee Last Name</a>
+                        Brugernavn</a>
                     </th>
                     <th>
-                        Employee Email</a>
+                        Fornavn</a>
                     </th>
-                    <th> Actions </th>
+                    <th>
+                        Efternavn</a>
+                    </th>
+                    <th>
+                        Beskrivelse</a>
+                    </th>
+                    <th> Handlinger </th>
                 </tr>
             </thead>
             <tbody>
                 <tr th:each="user : ${listUser}">
+                    <td th:text="${user.profilepicture}"></td>
                     <td th:text="${user.username}"></td>
                     <td th:text="${user.firstName}"></td>
                     <td th:text="${user.lastName}"></td>
-                    <td th:text="${user.telefonnr}"></td>
-                    <td th:text="${user.email}"></td>
+                    <td th:text="${user.description}"></td>
                     <td>
                         <a th:href="@{/userFormUpdate/{id}(id=${user.id})}" class="btn btn-primary">Update</a>
                         <a th:href="@{/deleteUser/{id}(id=${user.id})}" class="btn btn-danger">Delete</a>
