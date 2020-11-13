@@ -33,7 +33,11 @@ public class CreateProfile {
     @Column(name = "pinkode")
     private String pinkode;
 
-    // private boolean admin;
+    @Column(name = "description")
+    private String description;
+
+    @Column(name = "profilepicture")
+    private String profilepicture;
 
     public String getUsername() {
         return username;
@@ -49,6 +53,22 @@ public class CreateProfile {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getProfilepicture() {
+        return profilepicture;
+    }
+
+    public void setProfilepicture(String profilepicture) {
+        this.profilepicture = profilepicture;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getEmail() {
