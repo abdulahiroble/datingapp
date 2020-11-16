@@ -11,7 +11,6 @@ src -> main -> resources -> application.properties
 spring.datasource.url=jdbc:mysql://localhost:3306/profile?serverTimezone=UTC
 spring.datasource.username=root
 spring.datasource.password=password
-# Hibernate
 
 # The SQL dialect makes Hibernate generate better SQL for the chosen database
 spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect
@@ -23,5 +22,10 @@ logging.level.org.hibernate.SQL=DEBUG
 logging.level.org.hibernate.type=TRACE
 
 ```
-## How to 
+## How to run application
 
+```
+src -> main -> DatingappApplication.java
+```
+
+## Demo
