@@ -1,10 +1,10 @@
-## How to run
+## Setup database connection
 
 Instal MysQL Workbench https://dev.mysql.com/downloads/workbench/
 
-## Setup database connection
-
-$ src -> main -> resources -> database
+```
+src -> main -> resources -> application.properties
+```
 
 ```
 # DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
@@ -22,6 +22,6 @@ spring.jpa.hibernate.ddl-auto = update
 logging.level.org.hibernate.SQL=DEBUG
 logging.level.org.hibernate.type=TRACE
 
-
+```
 ## How to 
 
