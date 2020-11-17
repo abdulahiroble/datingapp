@@ -7,7 +7,7 @@ src -> main -> resources -> application.properties
 ```
 
 ```
-# DATASOURCE (DataSourceAutoConfiguration & DataSourceProperties)
+
 spring.datasource.url=jdbc:mysql://localhost:3306/profile?serverTimezone=UTC
 spring.datasource.username=root
 spring.datasource.password=password
